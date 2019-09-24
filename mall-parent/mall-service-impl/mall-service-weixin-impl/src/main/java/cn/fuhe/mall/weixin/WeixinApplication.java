@@ -1,9 +1,13 @@
 package cn.fuhe.mall.weixin;
 
+import cn.fuhe.mall.log.PrintLogger;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Import;
 
 /**
  * 描述:
@@ -16,6 +20,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  */
 @SpringBootApplication
 @EnableEurekaClient
+@EnableApolloConfig
+@MapperScan("cn.fuhe.mall.weixin.dao")
+//apollo动态调整日志级别，需要的可以直接打开注释
+//@Import(PrintLogger.class)
 public class WeixinApplication {
     public static void main(String[] args) {
         SpringApplication.run(WeixinApplication.class,args);

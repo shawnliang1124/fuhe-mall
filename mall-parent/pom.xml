@@ -25,6 +25,8 @@
         <module>mall-eureka-server</module>
         <module>mall-service-api</module>
         <module>mall-service-impl</module>
+        <module>mall-common</module>
+        <module>mall-utils</module>
     </modules>
 
 
@@ -44,7 +46,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
-        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <fastjson.version>1.2.60</fastjson.version>
         <!-- plugins Version  插件版本-->
         <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
@@ -56,6 +58,12 @@
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <apollo.version>1.1.0</apollo.version>
+        <jasypt.version>2.1.2</jasypt.version>
+        <guava.version>20.0</guava.version>
+        <hikaricp.version>3.3.0</hikaricp.version>
+        <mysql.version>5.1.28</mysql.version>
+        <mybatisplus.version>3.1.2</mybatisplus.version>
     </properties>
 
     <parent>
@@ -76,6 +84,21 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
+            <groupId>cn.mall.fuhe</groupId>
+            <artifactId>mall-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.mall.fuhe</groupId>
+            <artifactId>mall-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikaricp.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
             <version>${spring-cloud.version}</version>
@@ -88,7 +111,38 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-
+        <!-- apollo统一管理-->
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
+            <version>${apollo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-core</artifactId>
+            <version>${apollo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <exclusions>
+                <!-- 排除 tomcat-jdbc 以使用 HikariCP -->
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatisplus.version}</version>
+        </dependency>
     </dependencies>
     </dependencyManagement>
 
@@ -108,16 +162,23 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
+
 
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+         <!--   <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
