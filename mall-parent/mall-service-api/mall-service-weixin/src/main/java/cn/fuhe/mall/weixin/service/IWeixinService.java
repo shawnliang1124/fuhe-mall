@@ -3,6 +3,8 @@ package cn.fuhe.mall.weixin.service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Map;
+
 /**
  * 描述:
  * 微信服务层接口
@@ -15,4 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface IWeixinService {
     @GetMapping("/wxTest")
     String getWeixin(@RequestParam("wx") String wx);
+
+    @GetMapping("mapTest")
+    Map<String,Object> testMap();
 }
