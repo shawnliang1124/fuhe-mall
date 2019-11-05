@@ -16,7 +16,7 @@ public class BaseResponse<T> {
     /**
      * 返回码
      */
-    private Integer code;
+    private String code;
     /**
      * 消息
      */
@@ -26,14 +26,25 @@ public class BaseResponse<T> {
      */
     private T data;
 
+    /**
+     * 状态码
+     */
+    private Integer status;
+
     public BaseResponse() {
 
     }
 
-    public BaseResponse(Integer code, String msg, T data) {
+    public BaseResponse(String code, String msg) {
         super();
         this.code = code;
         this.msg = msg;
-        this.data = data;
+    }
+
+
+    public BaseResponse(String code, String msg, Integer status) {
+        this.code = code;
+        this.msg = msg;
+        this.status = status;
     }
 }

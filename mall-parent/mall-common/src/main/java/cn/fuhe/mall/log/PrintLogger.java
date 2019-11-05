@@ -2,7 +2,6 @@ package cn.fuhe.mall.log;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @package cn.fuhe.mall.log
  * @contact https://github.com/shawnliang1124
  */
-@Component
+//@Component
 @Slf4j
 public class PrintLogger implements InitializingBean {
     @Override
