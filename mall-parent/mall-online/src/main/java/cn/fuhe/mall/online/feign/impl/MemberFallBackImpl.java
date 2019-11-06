@@ -1,7 +1,7 @@
-package cn.shawn.weixin.feign.impl;
+package cn.fuhe.mall.online.feign.impl;
 
 import cn.fuhe.mall.base.Constants;
-import cn.shawn.weixin.feign.MemberFeign;
+import cn.fuhe.mall.online.feign.MemberFeign;
 import org.springframework.stereotype.Component;
 
 /**

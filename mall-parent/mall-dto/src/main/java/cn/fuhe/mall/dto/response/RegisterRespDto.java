@@ -10,5 +10,5 @@ import lombok.Data;
  * @description
  */
 @Data
-public class RegisterRespDto extends BaseRespDto {
+public class RegisterRespDto  {
 }

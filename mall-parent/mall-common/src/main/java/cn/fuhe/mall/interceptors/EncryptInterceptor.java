@@ -1,7 +1,7 @@
 package cn.fuhe.mall.interceptors;
 
-import cn.fuhe.mall.annoation.Crypt;
 import cn.fuhe.mall.encrypt.IEncryptDecrypt;
+import cn.fuhe.mall.annoation.Crypt;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.parameter.ParameterHandler;
 import org.apache.ibatis.plugin.*;

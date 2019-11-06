@@ -1,4 +1,4 @@
-package cn.shawn.weixin.service;
+package cn.fuhe.mall.online.service;
 
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.base.BaseServiceApi;
@@ -22,7 +22,7 @@ public class WeiXinService extends BaseServiceApi<WeiXinVerifyRespDto> {
      * @param weiXinVerifyReqDto
      * @return
      */
-    public BaseResponse<WeiXinVerifyRespDto> verifyCode( WeiXinVerifyReqDto weiXinVerifyReqDto){
+    public BaseResponse<WeiXinVerifyRespDto> verifyCode(WeiXinVerifyReqDto weiXinVerifyReqDto){
         return setSuccess();
     }
 }

@@ -6,10 +6,10 @@ import cn.fuhe.mall.member.dao.UserDao;
 import cn.fuhe.mall.member.entity.FhMember;
 import cn.fuhe.mall.member.entity.FhMemberExample;
 import cn.fuhe.mall.member.mapper.FhMemberMapper;
-import cn.hutool.core.collection.CollectionUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
         FhMemberExample example = new FhMemberExample();
         example.createCriteria().andPhoneEqualTo(phone);
         List<FhMember> fhMembers = fhMemberMapper.selectByExample(example);
-        return CollectionUtil.isEmpty(fhMembers)?null:fhMembers.get(0) ;
+        return CollectionUtils.isEmpty(fhMembers)?null:fhMembers.get(0) ;
     }
 
     @Override

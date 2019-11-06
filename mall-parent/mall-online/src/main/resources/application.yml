@@ -4,15 +4,15 @@ server:
 
 spring:
   application:
-    name:  mall-weixin
-  #  redis:
-  #    host: 188.131.155.46
-  #    port: 6379
-  #    password: 123456
-  #    jedis:
-  #      pool:
-  #        max-idle: 100
-  #        max-wait: 1
+    name:  mall-online
+  redis:
+    host: 106.12.77.33
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-idle: 100
+        max-wait: 1
   ###数据库相关连接
   datasource:
     username: root
@@ -40,3 +40,8 @@ feign:
         #设置feign的超时时间
         connectTimeout: 10000
         readTimeout: 10000
+
+sms:
+  api: http://106.ihuyi.com/webservice/sms.php?method=Submit
+  apiId: C11907688
+  apiKey: b4a949dcac36ef5fabba32490cc85510

@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mall-weixin</artifactId>
-    <description>微信服务</description>
+    <artifactId>mall-online</artifactId>
+    <description>外部三方服务（微信，短信服务等）</description>
     <dependencies>
         <!-- SpringBoot-整合Web组件 -->
         <dependency>
@@ -25,6 +25,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
 
     </dependencies>

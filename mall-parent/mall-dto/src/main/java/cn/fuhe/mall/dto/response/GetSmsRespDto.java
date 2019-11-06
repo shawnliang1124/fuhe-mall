@@ -5,15 +5,14 @@ import lombok.Data;
 /**
  * @author shawnLiang
  * @github https://github.com/shawnliang1124
- * @date 2019/11/4 19:27
+ * @date 2019/11/6 20:25
  * @contact 269882341@qq.com
- * @description 微信验证码校验响应
+ * @description 获取短信验证码响应dto
  */
 @Data
-public class WeiXinVerifyRespDto {
-
+public class GetSmsRespDto  {
     /**
-     * 1 代表通过 0代表拒绝
+     * 短信验证码
      */
-    private String flag;
+    private String smsCode;
 }

@@ -1,14 +1,12 @@
-package cn.shawn.weixin.controller;
+package cn.fuhe.mall.online.controller;
 
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.dto.request.WeiXinVerifyReqDto;
 import cn.fuhe.mall.dto.response.WeiXinVerifyRespDto;
-import cn.shawn.weixin.service.WeiXinService;
-import cn.shawn.weixin.service.WeixinTest;
+import cn.fuhe.mall.online.service.WeiXinService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,16 +21,11 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class WeixinController {
 
-    @Autowired
-    private WeixinTest weixinTest;
 
     @Autowired
     private WeiXinService weiXinService;
 
-    @GetMapping("test")
-    public String index(){
-        return weixinTest.weixinTest();
-    }
+
 
     @PostMapping("verifyCode")
     public BaseResponse<WeiXinVerifyRespDto> verifyCode(@RequestBody @Validated WeiXinVerifyReqDto weiXinVerifyReqDto){

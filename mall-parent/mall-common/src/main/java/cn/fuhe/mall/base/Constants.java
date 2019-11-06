@@ -9,4 +9,28 @@ package cn.fuhe.mall.base;
  */
 public class Constants {
     public static final String BUSY_CODE = "服务降级，请稍后重试";
+
+    public static final String CHARSET = "UTF-8";
+
+    public static final String CONTENT_TYPE = "application/x-www-form-urlencoded;charset=UTF-8";
+
+    /**
+     * 短信验证码的redis前缀
+     */
+    public static final String SMS_PREFIX = "SMS_";
+
+    /**
+     * 短信验证码有效期
+     */
+    public static final Long EXPIRED_TIME = 65L;
+
+    /**
+     * 短信验证码模板
+     */
+    public static final String SMS_TEMPLATE = "您的验证码是：{0}。请不要把验证码泄露给其他人。";
+
+    /**
+     * 第三方短信平台短信发送成功的响应码
+     */
+    public static final String SMS_SUCCESS = "2";
 }

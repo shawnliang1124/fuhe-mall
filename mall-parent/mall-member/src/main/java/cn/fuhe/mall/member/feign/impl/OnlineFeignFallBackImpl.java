@@ -1,11 +1,12 @@
 package cn.fuhe.mall.member.feign.impl;
 
 import cn.fuhe.mall.base.BaseResponse;
-import cn.fuhe.mall.base.BaseServiceApi;
+import cn.fuhe.mall.dto.request.VerifySmsReqDto;
 import cn.fuhe.mall.dto.request.WeiXinVerifyReqDto;
+import cn.fuhe.mall.dto.response.VerifySmsRespDto;
 import cn.fuhe.mall.dto.response.WeiXinVerifyRespDto;
 import cn.fuhe.mall.enums.RespEnum;
-import cn.fuhe.mall.member.feign.WeiXinFeign;
+import cn.fuhe.mall.member.feign.OnlineFeign;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,10 +17,18 @@ import org.springframework.stereotype.Component;
  * @description
  */
 @Component
-public class WeiXinFeignFallBackImpl implements WeiXinFeign {
+public class OnlineFeignFallBackImpl implements OnlineFeign {
     @Override
     public BaseResponse<WeiXinVerifyRespDto> verifyRegCode(WeiXinVerifyReqDto weiXinVerifyReqDto) {
         BaseResponse<WeiXinVerifyRespDto> serviceApi = new BaseResponse<>();
+        serviceApi.setCode(RespEnum.RESP_ERROR.getCode());
+        serviceApi.setMsg(RespEnum.RESP_ERROR.getMsg());
+        return serviceApi;
+    }
+
+    @Override
+    public BaseResponse<VerifySmsRespDto> verifySmsCode(VerifySmsReqDto verifySmsReqDto) {
+        BaseResponse<VerifySmsRespDto> serviceApi = new BaseResponse<>();
         serviceApi.setCode(RespEnum.RESP_ERROR.getCode());
         serviceApi.setMsg(RespEnum.RESP_ERROR.getMsg());
         return serviceApi;

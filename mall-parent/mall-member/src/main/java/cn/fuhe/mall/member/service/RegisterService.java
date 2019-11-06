@@ -3,16 +3,15 @@ package cn.fuhe.mall.member.service;
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.base.BaseServiceApi;
 import cn.fuhe.mall.dto.request.RegisterReqDto;
-import cn.fuhe.mall.dto.request.WeiXinVerifyReqDto;
+import cn.fuhe.mall.dto.request.VerifySmsReqDto;
 import cn.fuhe.mall.dto.response.RegisterRespDto;
-import cn.fuhe.mall.dto.response.WeiXinVerifyRespDto;
+import cn.fuhe.mall.dto.response.VerifySmsRespDto;
 import cn.fuhe.mall.enums.RespEnum;
 import cn.fuhe.mall.member.dao.UserDao;
 import cn.fuhe.mall.member.entity.FhMember;
-import cn.fuhe.mall.member.feign.WeiXinFeign;
+import cn.fuhe.mall.member.feign.OnlineFeign;
 import cn.fuhe.mall.utils.ConvertBeanUtils;
 import cn.fuhe.mall.utils.SafetyUtils;
-import cn.hutool.core.lang.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author shawnLiang
@@ -35,7 +35,7 @@ public class RegisterService extends BaseServiceApi<RegisterRespDto> {
     private UserDao userDao;
 
     @Autowired
-    private WeiXinFeign weixinFeign;
+    private OnlineFeign onlineFeign;
 
     @Transactional
     public BaseResponse register(RegisterReqDto reqDto){
@@ -45,8 +45,8 @@ public class RegisterService extends BaseServiceApi<RegisterRespDto> {
            return setResult(RespEnum.USER_EXIST);
         }
         //校验验证码是否正确
-        WeiXinVerifyReqDto weiXinVerifyReqDto = new WeiXinVerifyReqDto(reqDto.getPhone(), reqDto.getRegisterCode());
-        BaseResponse<WeiXinVerifyRespDto> response = weixinFeign.verifyRegCode(weiXinVerifyReqDto);
+        VerifySmsReqDto verifySmsReqDto = new VerifySmsReqDto(reqDto.getPhone(), reqDto.getRegisterCode());
+        BaseResponse<VerifySmsRespDto> response = onlineFeign.verifySmsCode(verifySmsReqDto);
         if(response.getStatus().equals(HttpStatus.INTERNAL_SERVER_ERROR.value())){
            return setResult(RespEnum.VERIFY_FAIL);
         }

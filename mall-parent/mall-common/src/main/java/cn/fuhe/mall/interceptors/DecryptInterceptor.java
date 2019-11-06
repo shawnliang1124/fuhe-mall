@@ -1,12 +1,12 @@
 package cn.fuhe.mall.interceptors;
 
 import cn.fuhe.mall.encrypt.IEncryptDecrypt;
-import cn.hutool.core.collection.CollectionUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.resultset.ResultSetHandler;
 import org.apache.ibatis.plugin.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class DecryptInterceptor implements Interceptor {
         }
         if(proceed instanceof ArrayList){
             ArrayList result = (ArrayList) proceed;
-            if(!CollectionUtil.isEmpty(result) ){
+            if(!CollectionUtils.isEmpty(result) ){
                 for (int i = 0; i < result.size(); i++) {
                     decryptResult(result.get(i));
                 }
