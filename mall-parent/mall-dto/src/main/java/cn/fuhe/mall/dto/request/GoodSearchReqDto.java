@@ -17,12 +17,12 @@ public class GoodSearchReqDto implements Serializable {
     /**
      * 页码数  从1开始
      */
-    private Integer page;
+    private Integer page = 1;
 
     /**
      * 页大小
      */
-    private Integer size;
+    private Integer size = 10;
 
     /**
      * 关键词
@@ -34,5 +34,10 @@ public class GoodSearchReqDto implements Serializable {
      */
     private String type;
 
+    /**
+     * 排序类型
+     * 1降序 desc 0升序 asc
+     */
+    private Integer sortType;
 
 }

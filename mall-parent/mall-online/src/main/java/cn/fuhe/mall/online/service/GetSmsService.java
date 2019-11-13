@@ -27,6 +27,7 @@ import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -73,7 +74,7 @@ public class GetSmsService extends BaseServiceApi<GetSmsRespDto> {
      * @param getSmsReqDto
      * @return
      */
-    public BaseResponse<GetSmsRespDto> getSmsCode(GetSmsReqDto getSmsReqDto) {
+    public BaseResponse<GetSmsRespDto> getSmsCode(GetSmsReqDto getSmsReqDto, BindingResult bindingResult) {
 
         String smsCode = String.valueOf((int) ((Math.random() * 9 + 1) * 100000));
         String mobile = getSmsReqDto.getMobile();
@@ -96,7 +97,7 @@ public class GetSmsService extends BaseServiceApi<GetSmsRespDto> {
      * @param mobile
      * @param smsCode
      */
-    private void sendSms(String mobile, String smsCode) {
+    private void sendSms(String mobile, String smsCode,BindingResult bindingResult) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpPost httpPost = new HttpPost(smsApi);
         httpPost.setConfig(config);

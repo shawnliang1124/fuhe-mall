@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 /**
  * @author shawnLiang
@@ -31,7 +32,7 @@ public class VerifySmsService extends BaseServiceApi<VerifySmsRespDto> {
      * @param verifySmsReqDto
      * @return
      */
-    public BaseResponse<VerifySmsRespDto> verifySmsCode(VerifySmsReqDto verifySmsReqDto) {
+    public BaseResponse<VerifySmsRespDto> verifySmsCode(VerifySmsReqDto verifySmsReqDto, BindingResult bindingResult) {
         VerifySmsRespDto respDto = new VerifySmsRespDto();
         respDto.setAuth(false);
         String value = redisUtils.getString(Constants.SMS_PREFIX + verifySmsReqDto.getMobile());

@@ -18,6 +18,8 @@ public enum  RespEnum {
     VERIFY_SUCCESS("10200","验证码校验成功",200),
     VERIFY_FAIL("10291","验证码校验失败",500),
     VERIFY_DIFFERENT("10292","短信验证码不一致",500),
+
+    QUERY_GOODS_SUCCESS("10300","查询商品成功")
     ;
 
 
