@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 
 /**
  * @author shawnLiang
@@ -13,7 +14,7 @@ import javax.validation.constraints.Pattern;
  * @description 注册请求类
  */
 @Data
-public class RegisterReqDto {
+public class RegisterReqDto implements Serializable {
     @NotBlank(message = "手机号不为空")
     @Pattern(regexp = "^[1][3578][0-9]{9}$",message = "手机号格式不匹配")
     private String phone;

@@ -10,7 +10,7 @@ import lombok.Data;
  * @description 微信验证码校验响应
  */
 @Data
-public class WeiXinVerifyRespDto extends BaseRespDto {
+public class WeiXinVerifyRespDto {
 
     /**
      * 1 代表通过 0代表拒绝

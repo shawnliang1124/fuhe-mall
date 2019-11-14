@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 
 /**
  * @author shawnLiang
@@ -16,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class WeiXinVerifyReqDto {
+public class WeiXinVerifyReqDto implements Serializable {
     @NotBlank(message = "手机号不可为空")
     private String phone;
 

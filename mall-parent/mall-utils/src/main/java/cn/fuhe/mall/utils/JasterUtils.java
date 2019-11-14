@@ -1,11 +1,10 @@
 package cn.fuhe.mall.utils;
 
-import cn.fuhe.mall.bean.singleton.EncryptorSingleton;
 import cn.fuhe.mall.constants.UtilsConstants;
+import cn.fuhe.mall.bean.singleton.EncryptorSingleton;
 import com.google.common.collect.Maps;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**

@@ -1,0 +1,42 @@
+###服务启动端口号
+server:
+  port: 8400
+
+spring:
+  application:
+    name:  mall-goods
+  redis:
+    host: 106.12.77.33
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-idle: 100
+        max-wait: 1
+  ###数据库相关连接
+  datasource:
+    username: root
+    password: ljj19951124
+    url: jdbc:mysql://106.12.77.33:3306/mall_member?useUnicode=true&useJDBCCompliantTimezoneShift=true&serverTimezone=UTC&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+  ##es相关配置
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch-cluster
+      cluster-nodes: 106.12.77.33:9300,106.12.77.33:9301
+
+ ###服务注册到eureka地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7070/eureka
+
+feign:
+  client:
+    config:
+      default:
+        #设置feign的超时时间
+        connectTimeout: 10000
+        readTimeout: 10000
+
+

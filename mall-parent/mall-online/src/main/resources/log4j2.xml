@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--log4j2内部插件的log打印级别 -->
+<Configuration status="ERROR" monitorInterval="600" strict="true">
+    <properties>
+        <property name="level">INFO</property>
+    </properties>
+
+    <Appenders>
+        <!-- 日志输出到控制台 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n" />
+        </Console>
+
+        <!--日志输出到kafka-->
+        <Kafka name="Kafka" topic="online_logs">
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS}:%4p %t (%F:%L) - %m%n" />
+            <Property name="bootstrap.servers">106.12.77.33:9092</Property>
+        </Kafka>
+        <!--所有日志 -->
+        <!--   <RollingFile name="AllLog" fileName="${LOG_HOME}/all.log"
+              append="true"
+              filePattern="${LOG_HOME}/$${date:yyyy-MM}/all-%d{MM-dd-yyyy}-%i.log.gz">
+              <PatternLayout charset="UTF-8"
+                 pattern="[%-5level] [%d{DEFAULT}] [%thread] [%MDC] ([%c:%line:%method]) %msg%n" />
+              <SizeBasedTriggeringPolicy size="5MB" />
+           </RollingFile>
+           &lt;!&ndash; 异步输出，通常情况下缓存256效率最高，但是对于大型项目，可以选2048以上值 &ndash;&gt;
+           <Async name="AsyncAllLog" bufferSize="256">
+              <AppenderRef ref="AllLog" />
+           </Async>-->
+
+
+        <!--INFO日志 -->
+        <!--   <RollingFile name="InfoLog"
+              fileName="${LOG_HOME}/info.log" append="true"
+              filePattern="${LOG_HOME}/$${date:yyyy-MM}/info-%d{MM-dd-yyyy}-%i.log.gz">
+              <Filters>
+                 &lt;!&ndash;拒绝warn及以上级别 &ndash;&gt;
+                 <ThresholdFilter level="warn" onMatch="DENY"
+                    onMismatch="NEUTRAL" />
+                 &lt;!&ndash;剩下的只接受info及以上级别 &ndash;&gt;
+                 <ThresholdFilter level="info" onMatch="ACCEPT"
+                    onMismatch="DENY" />
+              </Filters>
+              <PatternLayout charset="UTF-8"
+                 pattern="[%-5level] [%d{DEFAULT}] [%thread] [%MDC] ([%c:%line:%method]) %msg%n" />  -->
+    </Appenders>
+    <!--只输入级别高于trace的日志 -->
+    <Loggers>
+        <root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Kafka"/>
+            <!-- 			<AppenderRef ref="AsyncAllLog" /> -->
+            <!-- 			<AppenderRef ref="AsyncInfoLog"/> -->
+            <!-- 			<AppenderRef ref="AsyncErrLog" /> -->
+        </root>
+    </Loggers>
+</Configuration>

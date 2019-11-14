@@ -25,4 +25,10 @@ public class BaseServiceApi<T> {
     public BaseResponse setResult(RespEnum respEnum){
         return new BaseResponse(respEnum.getCode(),respEnum.getMsg(),respEnum.getStatus());
     }
+
+    public BaseResponse<T> setResult(T t,RespEnum respEnum){
+        BaseResponse baseResponse = this.setResult(respEnum);
+        baseResponse.setData(t);
+        return baseResponse;
+    }
 }

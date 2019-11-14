@@ -47,4 +47,11 @@ public class BaseResponse<T> {
         this.msg = msg;
         this.status = status;
     }
+
+    public BaseResponse(String code, String msg, T data, Integer status) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+        this.status = status;
+    }
 }
