@@ -2,6 +2,7 @@ package cn.fuhe.mall.goods.service;
 
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.base.BaseServiceApi;
+import cn.fuhe.mall.base.Constants;
 import cn.fuhe.mall.base.GoodConstants;
 import cn.fuhe.mall.dto.request.GoodSearchReqDto;
 import cn.fuhe.mall.dto.response.GoodEntityRespDto;
@@ -9,6 +10,7 @@ import cn.fuhe.mall.dto.response.GoodSearchRespDto;
 import cn.fuhe.mall.enums.RespEnum;
 import cn.fuhe.mall.goods.es.model.GoodsEsEntity;
 import cn.fuhe.mall.goods.es.repostitry.GoodSpuRepository;
+import cn.hutool.core.date.DateUtil;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -21,6 +23,7 @@ import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilde
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author shawnLiang
@@ -41,10 +44,8 @@ public class GoodSearchService  extends BaseServiceApi<GoodSearchRespDto> {
      * @return
      */
     public BaseResponse<GoodSearchRespDto> queryGoods(GoodSearchReqDto goodSearchReqDto){
-        if(goodSearchReqDto == null){
-            //为空初始化一个默认的请求dto
-            goodSearchReqDto = new GoodSearchReqDto();
-        }
+        Integer page = Optional.ofNullable(goodSearchReqDto.getPage()).orElse(Constants.BEGIN_PAGE);
+        Integer size = Optional.ofNullable(goodSearchReqDto.getSize()).orElse(Constants.PAGE_SIZE);
         NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
         if(!StringUtils.isEmpty(goodSearchReqDto.getKeyword())){
             //添加基本的分词条件
@@ -59,11 +60,11 @@ public class GoodSearchService  extends BaseServiceApi<GoodSearchRespDto> {
             if(StringUtils.equals(type, GoodConstants.TIME)){
                 queryBuilder.withSort(SortBuilders.fieldSort("create_time").order(formatSortOrder(sortType)));
             }else{
-                queryBuilder.withSort(SortBuilders.fieldSort("").order(formatSortOrder(sortType)));
+                queryBuilder.withSort(SortBuilders.fieldSort("id").order(formatSortOrder(sortType)));
             }
         }
         //jpa的分页从0开始
-        PageRequest pageRequest = PageRequest.of(goodSearchReqDto.getPage() - 1, goodSearchReqDto.getSize());
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
         queryBuilder.withPageable(pageRequest);
         Page<GoodsEsEntity> pageResult = spuRepository.search(queryBuilder.build());
         return formatSearchResult(pageResult);
@@ -81,8 +82,8 @@ public class GoodSearchService  extends BaseServiceApi<GoodSearchRespDto> {
         List<GoodEntityRespDto> goodEntityRespDtos = Lists.newArrayList();
         results.forEach(result ->{
             GoodEntityRespDto goodEntityRespDto = new GoodEntityRespDto();
-            goodEntityRespDto.setCreateTime(result.getCreate_time());
-            goodEntityRespDto.setUpdateTime(result.getUpdate_time());
+            goodEntityRespDto.setCreateTime(DateUtil.format(result.getCreate_time(),Constants.DATE_TYPE_ONE));
+            goodEntityRespDto.setUpdateTime(DateUtil.format(result.getUpdate_time(),Constants.DATE_TYPE_ONE));
             goodEntityRespDto.setSpuModel(result.getSpu_model());
             goodEntityRespDto.setSpuName(result.getSpu_name());
             goodEntityRespDto.setId(result.getId());

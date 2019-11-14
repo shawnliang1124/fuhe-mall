@@ -2,8 +2,6 @@ package cn.fuhe.mall.dto.response;
 
 import lombok.Data;
 
-import java.util.Date;
-
 /**
  * @author shawnLiang
  * @github https://github.com/shawnliang1124
@@ -21,9 +19,15 @@ public class GoodEntityRespDto {
 
     private String description;
 
-    private Date createTime;
+    /**
+     * yyyy-MM-dd HH:mm:ss格式
+     */
+    private String createTime;
 
-    private Date updateTime;
+    /**
+     * yyyy-MM-dd HH:mm:ss格式
+     */
+    private String updateTime;
 
 
 }

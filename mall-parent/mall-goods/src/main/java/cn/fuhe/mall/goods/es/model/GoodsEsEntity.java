@@ -1,6 +1,9 @@
 package cn.fuhe.mall.goods.es.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Date;
 
@@ -12,7 +15,10 @@ import java.util.Date;
  * @description  商品的ES实体类
  */
 
+@Document(indexName = "goodspu", type = "goodspu", shards = 1, replicas = 0)
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class GoodsEsEntity {
 
     private Integer id;

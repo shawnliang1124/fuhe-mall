@@ -2,7 +2,6 @@ package cn.fuhe.mall.goods.es.repostitry;
 
 import cn.fuhe.mall.goods.es.model.GoodsEsEntity;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author shawnLiang
@@ -11,6 +10,5 @@ import org.springframework.stereotype.Repository;
  * @contact 269882341@qq.com
  * @description ES的搜索相关
  */
-@Repository
 public interface GoodSpuRepository extends ElasticsearchRepository<GoodsEsEntity,Integer> {
 }

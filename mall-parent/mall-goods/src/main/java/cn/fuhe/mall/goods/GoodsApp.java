@@ -1,9 +1,12 @@
 package cn.fuhe.mall.goods;
 
+import cn.fuhe.mall.bean.AutoConfiguration;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.core.annotation.Order;
 
 /**
@@ -15,8 +18,13 @@ import org.springframework.core.annotation.Order;
  */
 @EnableFeignClients
 @EnableEurekaClient
-@ComponentScan("cn.fuhe.mall")
+@ComponentScan(value="cn.fuhe.mall",
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,classes = {AutoConfiguration.class})
+        }
+)
 @Order(value=-1)
+@SpringBootApplication
 public class GoodsApp {
 
     public static void main(String[] args) {

@@ -34,5 +34,19 @@ public class Constants {
      */
     public static final String SMS_SUCCESS = "2";
 
+    /**
+     * 起始页
+     */
+    public static final Integer BEGIN_PAGE = 1;
+
+    /**
+     * 默认的页大小
+     */
+    public static final Integer PAGE_SIZE = 10;
+
+    /**
+     * yyyy-MM-dd HH:mm:ss 格式
+     */
+    public static final String DATE_TYPE_ONE = "yyyy-MM-dd HH:mm:ss";
 
 }
