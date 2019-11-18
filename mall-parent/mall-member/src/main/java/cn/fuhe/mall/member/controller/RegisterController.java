@@ -1,8 +1,8 @@
 package cn.fuhe.mall.member.controller;
 
 import cn.fuhe.mall.base.BaseResponse;
-import cn.fuhe.mall.dto.request.RegisterReqDto;
-import cn.fuhe.mall.dto.response.RegisterRespDto;
+import cn.fuhe.mall.dto.request.member.RegisterReqDto;
+import cn.fuhe.mall.dto.response.member.RegisterRespDto;
 import cn.fuhe.mall.member.service.RegisterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

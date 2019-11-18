@@ -1,4 +1,4 @@
-package cn.fuhe.mall.dto.response;
+package cn.fuhe.mall.dto.response.online;
 
 import lombok.Data;
 

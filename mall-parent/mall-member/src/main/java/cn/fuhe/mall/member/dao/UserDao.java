@@ -7,7 +7,7 @@ import cn.fuhe.mall.member.entity.FhMember;
  * @github https://github.com/shawnliang1124
  * @date 2019/11/4 18:43
  * @contact 269882341@qq.com
- * @description
+ * @description .
  */
 public interface UserDao {
     /**

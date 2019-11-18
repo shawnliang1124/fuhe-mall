@@ -1,8 +1,8 @@
 package cn.fuhe.mall.online.controller;
 
 import cn.fuhe.mall.base.BaseResponse;
-import cn.fuhe.mall.dto.request.WeiXinVerifyReqDto;
-import cn.fuhe.mall.dto.response.WeiXinVerifyRespDto;
+import cn.fuhe.mall.dto.request.online.WeiXinVerifyReqDto;
+import cn.fuhe.mall.dto.response.online.WeiXinVerifyRespDto;
 import cn.fuhe.mall.online.service.WeiXinService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

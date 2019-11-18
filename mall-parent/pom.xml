@@ -29,6 +29,7 @@
         <module>mall-online</module>
         <module>mall-dto</module>
         <module>mall-goods</module>
+        <module>mall-pay</module>
     </modules>
 
 

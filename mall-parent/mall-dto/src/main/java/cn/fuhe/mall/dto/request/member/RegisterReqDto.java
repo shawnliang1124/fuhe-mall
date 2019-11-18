@@ -1,4 +1,4 @@
-package cn.fuhe.mall.dto.request;
+package cn.fuhe.mall.dto.request.member;
 
 import lombok.Data;
 

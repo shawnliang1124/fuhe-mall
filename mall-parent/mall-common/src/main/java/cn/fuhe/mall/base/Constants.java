@@ -49,4 +49,15 @@ public class Constants {
      */
     public static final String DATE_TYPE_ONE = "yyyy-MM-dd HH:mm:ss";
 
+    /**
+     * 支付项目pay的key长度
+     */
+    public static final int PAY_KEY_LENGTH = 12;
+
+    /**
+     * 前缀
+     */
+    public static final String PAY_KEY_PREFIX = "pay_";
+
+    public static final long PAY_KEY_EXPIRED = 10L;
 }

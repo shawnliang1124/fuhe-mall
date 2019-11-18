@@ -2,10 +2,10 @@ package cn.fuhe.mall.member.service;
 
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.base.BaseServiceApi;
-import cn.fuhe.mall.dto.request.RegisterReqDto;
-import cn.fuhe.mall.dto.request.VerifySmsReqDto;
-import cn.fuhe.mall.dto.response.RegisterRespDto;
-import cn.fuhe.mall.dto.response.VerifySmsRespDto;
+import cn.fuhe.mall.dto.request.member.RegisterReqDto;
+import cn.fuhe.mall.dto.request.online.VerifySmsReqDto;
+import cn.fuhe.mall.dto.response.member.RegisterRespDto;
+import cn.fuhe.mall.dto.response.online.VerifySmsRespDto;
 import cn.fuhe.mall.enums.RespEnum;
 import cn.fuhe.mall.member.dao.UserDao;
 import cn.fuhe.mall.member.entity.FhMember;

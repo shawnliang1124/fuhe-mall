@@ -11,6 +11,7 @@ public enum  RespEnum {
     RESP_SUCCESS("0000","请求成功",200),
     RESP_ERROR("9999","请求异常",500),
     USER_EXIST("10090","用户已存在",500),
+    DATABASE_ERROR("9998","database异常",500),
 
     GET_SMS_SUCCESS("10190","获取短信验证码成功",200),
     GET_SMS_FAIL("10191","短信验证码仍在有效期",500),
@@ -19,7 +20,10 @@ public enum  RespEnum {
     VERIFY_FAIL("10291","验证码校验失败",500),
     VERIFY_DIFFERENT("10292","短信验证码不一致",500),
 
-    QUERY_GOODS_SUCCESS("10300","查询商品成功",200)
+    QUERY_GOODS_SUCCESS("10300","查询商品成功",200),
+
+    CREATE_PAY_TOKEN_SUCCESS("10400","生成支付token成功",200),
+    CREATE_PAY_TOKEN_FAIL("10499","生成支付token失败",500),
     ;
 
 

@@ -2,8 +2,8 @@ package cn.fuhe.mall.online.service;
 
 import cn.fuhe.mall.base.BaseResponse;
 import cn.fuhe.mall.base.BaseServiceApi;
-import cn.fuhe.mall.dto.request.WeiXinVerifyReqDto;
-import cn.fuhe.mall.dto.response.WeiXinVerifyRespDto;
+import cn.fuhe.mall.dto.request.online.WeiXinVerifyReqDto;
+import cn.fuhe.mall.dto.response.online.WeiXinVerifyRespDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

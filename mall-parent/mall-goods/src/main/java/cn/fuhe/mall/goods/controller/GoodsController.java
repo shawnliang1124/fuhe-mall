@@ -1,8 +1,8 @@
 package cn.fuhe.mall.goods.controller;
 
 import cn.fuhe.mall.base.BaseResponse;
-import cn.fuhe.mall.dto.request.GoodSearchReqDto;
-import cn.fuhe.mall.dto.response.GoodSearchRespDto;
+import cn.fuhe.mall.dto.request.good.GoodSearchReqDto;
+import cn.fuhe.mall.dto.response.good.GoodSearchRespDto;
 import cn.fuhe.mall.goods.service.GoodSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;

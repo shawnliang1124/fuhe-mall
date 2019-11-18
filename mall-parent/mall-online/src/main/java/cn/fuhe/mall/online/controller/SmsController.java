@@ -1,10 +1,10 @@
 package cn.fuhe.mall.online.controller;
 
 import cn.fuhe.mall.base.BaseResponse;
-import cn.fuhe.mall.dto.request.GetSmsReqDto;
-import cn.fuhe.mall.dto.request.VerifySmsReqDto;
-import cn.fuhe.mall.dto.response.GetSmsRespDto;
-import cn.fuhe.mall.dto.response.VerifySmsRespDto;
+import cn.fuhe.mall.dto.request.online.GetSmsReqDto;
+import cn.fuhe.mall.dto.request.online.VerifySmsReqDto;
+import cn.fuhe.mall.dto.response.online.GetSmsRespDto;
+import cn.fuhe.mall.dto.response.online.VerifySmsRespDto;
 import cn.fuhe.mall.online.service.GetSmsService;
 import cn.fuhe.mall.online.service.VerifySmsService;
 import lombok.extern.slf4j.Slf4j;

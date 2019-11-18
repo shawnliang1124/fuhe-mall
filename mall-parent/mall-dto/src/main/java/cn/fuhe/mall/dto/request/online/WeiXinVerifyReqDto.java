@@ -1,4 +1,4 @@
-package cn.fuhe.mall.dto.request;
+package cn.fuhe.mall.dto.request.online;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
